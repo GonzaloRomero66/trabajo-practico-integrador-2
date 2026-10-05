@@ -1,5 +1,5 @@
 export const App = () => {
-  return <p>Trabajo integrador numero 2</p>;
+  return <p>Comienzo del proyecto</p>;
 };
 
 export default App;
