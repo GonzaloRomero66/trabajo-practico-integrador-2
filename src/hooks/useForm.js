@@ -13,3 +13,5 @@ const useForm = (initialValues) => {
     setForm(initialValues);
   };
 };
+
+export default useForm
