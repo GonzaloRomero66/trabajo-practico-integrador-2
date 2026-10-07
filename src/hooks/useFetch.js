@@ -19,7 +19,7 @@ const useFetch = (url) => {
         setLoading(true);
         // fetch(url) esta pidiendo la respuesta de la url, osea del backend donde response es el que guarda y
         // pusimos un await para que espere a que consiga la respuesta
-        const response = await fetch(url);
+        const response = await fetch(url, { credentials: "include" });
         if (!response.ok) {
           // Error es lo que se utiliza para crear un objeto que es un error,
           // por eso se pone en mayuscula la E, si se pone en minuscula es una variable
