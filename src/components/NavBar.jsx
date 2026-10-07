@@ -43,7 +43,7 @@ export const Navbar = () => {
     // aca comenzariamos a mostrar lo que aparece en pantalla
     // Esto crea la barra de navegacion, donde msotramos las sombras,
     // respectivos colores y como esten centrados
-    <nav className="bg-slate-900 text-white shadow-md py-4 px-6 flex justify-between items-center mb-8">
+    <nav className="bg-slate-300 text-white shadow-md py-4 px-6 flex justify-between items-center mb-8">
       <Link
         // Aca crearimos el enlace Inicio que nos llevaria devuelta
         // al / que seria el home y tambien donde tocamos la apariencia de este
@@ -59,7 +59,7 @@ export const Navbar = () => {
         // y si isLoading esta true, el boton queda desactivado
         onClick={handleLogout}
         disabled={isLoading}
-        className="bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer"
+        className="bg-red-500 hover:bg-red-700 disabled:opacity-50 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer"
       >
         {isLoading
           ? // Esto es una condicional corta donde si isLoading es true mostrara Cerrando sesion..
