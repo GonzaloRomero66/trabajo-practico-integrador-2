@@ -1,13 +1,10 @@
-import { Navigate } from "react-router";
+import { Navigate, Outlet } from "react-router";
 
-const PublicRoutes = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("isAuthenticated");
+const PublicRoutes = () => {
+  const isLogged = localStorage.getItem("isLogged") === "true";
 
-  if (isAuthenticated) {
-    return <Navigate to="/" />;
-  }
-
-  return children;
+  // Si ya está logueado, redirige a la página principal (/)
+  return !isLogged ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default PublicRoutes;

@@ -71,7 +71,6 @@ export const RegisterPage = () => {
           </div>
         )}
 
-        {/* Renderizado de errores de express-validator con map() */}
         {validationErrors.length > 0 && (
           <div className="bg-yellow-50 border border-yellow-300 text-yellow-800 px-4 py-3 rounded mb-4 text-sm">
             <ul className="list-disc list-inside space-y-1">

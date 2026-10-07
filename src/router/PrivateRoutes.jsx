@@ -1,13 +1,9 @@
-import { Navigate } from "react-router";
+import { Navigate, Outlet } from "react-router";
 
-const PrivateRoutes = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("isAuthenticated");
+const PrivateRoutes = () => {
+  const isLogged = localStorage.getItem("isLogged") === "true";
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
-
-  return children;
+  return isLogged ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default PrivateRoutes;
