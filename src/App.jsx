@@ -1,5 +1,9 @@
+import AppRouter from "./router/AppRouter";
+
 export const App = () => {
-  return <p>Comienzo del proyecto</p>;
+  return (
+    <AppRouter/>
+  )
 };
 
 export default App;
