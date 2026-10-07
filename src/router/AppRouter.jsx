@@ -3,6 +3,8 @@ import Navbar from "../components/NavBar";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import HomePage from "../pages/HomePage";
+import PrivateRoutes from "./PrivateRoutes";
+import PublicRoutes from "./PublicRoutes";
 
 const AppRouter = () => {
   return (
@@ -10,9 +12,30 @@ const AppRouter = () => {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoutes>
+              <HomePage />
+            </PrivateRoutes>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoutes>
+              <LoginPage />
+            </PublicRoutes>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoutes>
+              <RegisterPage />
+            </PublicRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
