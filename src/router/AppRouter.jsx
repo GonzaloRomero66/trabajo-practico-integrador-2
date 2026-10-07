@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import Navbar from "../components/NavBar";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
