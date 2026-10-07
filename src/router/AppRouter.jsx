@@ -7,8 +7,6 @@ import { RegisterPage } from "../pages/RegisterPage";
 import { Navbar } from "../components/NavBar";
 
 export const AppRouter = () => {
-  const isLogged = localStorage.getItem("isLogged") === "true";
-
   return (
     <BrowserRouter>
       <Routes>
@@ -18,7 +16,7 @@ export const AppRouter = () => {
           <Route path="/register" element={<RegisterPage />} />
         </Route>
 
-        {/* Rutas Privadas: El Navbar solo se muestra aquí */}
+        {/* Rutas Privadas: El Navbar se renderiza acá arriba de HomePage */}
         <Route element={<PrivateRoutes />}>
           <Route
             path="/"
@@ -32,10 +30,7 @@ export const AppRouter = () => {
         </Route>
 
         {/* Ruta comodín */}
-        <Route
-          path="*"
-          element={<Navigate to={isLogged ? "/" : "/login"} replace />}
-        />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 import useFetch from "../hooks/useFetch";
 
-const HomePage = () => {
+export const HomePage = () => {
   const { data, loading, error } = useFetch("http://localhost:3000/articles");
 
   if (loading) {

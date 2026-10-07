@@ -8,18 +8,13 @@ export const RegisterPage = () => {
   const [validationErrors, setValidationErrors] = useState([]);
   const [serverError, setServerError] = useState("");
 
-  const {
-    username,
-    email,
-    password,
-    formState,
-    handleInputChange,
-    handleReset,
-  } = useForm({
-    username: "",
-    email: "",
-    password: "",
-  });
+  // Usamos 'form' que es la propiedad que retorna useForm
+  const { username, email, password, form, handleInputChange, handleReset } =
+    useForm({
+      username: "",
+      email: "",
+      password: "",
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,12 +23,13 @@ export const RegisterPage = () => {
     setServerError("");
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/register", {
+      // Ajustá la URL si tu backend usa '/api/auth/register' o '/auth/register'
+      const response = await fetch("http://localhost:3000/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formState),
+        body: JSON.stringify(form), // <-- Corregido: 'form' en lugar de 'formState'
       });
 
       const data = await response.json();
