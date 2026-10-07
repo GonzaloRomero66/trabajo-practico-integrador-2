@@ -52,6 +52,7 @@ const LoginPage = () => {
                         name="email"
                         value={form.email}
                         onChange={handleInputChange}
+                        className="border border-black"
                     />
                 </div>
 
@@ -63,6 +64,7 @@ const LoginPage = () => {
                         name="password"
                         value={form.password}
                         onChange={handleInputChange}
+                        className="border border-black"
                     />
                 </div>
 
