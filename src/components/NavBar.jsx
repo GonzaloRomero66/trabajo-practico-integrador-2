@@ -1,24 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
 
-    return (
-        <nav>
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
 
-            <Link to="/">
-                Inicio
-            </Link>
+  const handleLogout = async () => {
+    try {
+      await fetch("http://localhost:3000/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
 
-            <Link to="/login">
-                Iniciar sesión
-            </Link>
+      localStorage.removeItem("isAuthenticated");
 
-            <Link to="/register">
-                Registrarse
-            </Link>
+      navigate("/login");
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error.message);
+    }
+  };
 
-        </nav>
-    );
+  return (
+    <nav>
+      <Link to="/">Inicio</Link>
+
+      {!isAuthenticated && (
+        <>
+          <Link to="/login">Iniciar sesión</Link>
+          <Link to="/register">Registrarse</Link>
+        </>
+      )}
+
+      {isAuthenticated && <button onClick={handleLogout}>Cerrar sesión</button>}
+    </nav>
+  );
 };
 
 export default Navbar;
