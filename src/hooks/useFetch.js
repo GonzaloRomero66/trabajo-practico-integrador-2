@@ -32,7 +32,6 @@ const useFetch = (url) => {
         // Estamos agarrando la respuesta que habiamos conseguido del response
         //  de antes para ahora hacerlo un json y ponerlo en result
         const result = await response.json();
-        console.log(result);
         // EStamos cambiando los valores de data reemplazandolos con los de result
         setData(result);
         // El catch se encarga de si aparece un error en el try, muestre o capture el error correspondiente

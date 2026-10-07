@@ -5,13 +5,22 @@ const useForm = (initialValues) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
   };
-  setForm((prevForm) => {
-    (prevForm, [name], value);
-  });
+
   const handleReset = () => {
     setForm(initialValues);
   };
+
+  return {
+    form,
+    handleInputChange,
+    handleReset,
+  };
 };
 
-export default useForm
+export default useForm;

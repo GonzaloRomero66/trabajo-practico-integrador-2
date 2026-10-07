@@ -1,13 +1,9 @@
-import useFetch from "./hooks/useFetch";
+import AppRouter from "./router/AppRouter";
 
 export const App = () => {
-  const { data, loading, error } = useFetch(
-    "http://localhost:3000/api/articles",
-  );
-
-  console.log("DATA:", data);
-  console.log("LOADING:", loading);
-  console.log("ERROR:", error);
+  return (
+    <AppRouter/>
+  )
 };
 
 export default App;
